@@ -1,18 +1,20 @@
 const skills = [
-    "TypeScript",
+    "Go",
+    "Rust",
     "Python",
+    "TypeScript",
     "C++",
+    "Distributed Systems",
+    "ML Infrastructure",
+    "PyTorch / CUDA",
     "React / Next.js",
-    "Machine Learning",
-    "Computer Vision",
-    "ROS 2",
     "Linux / Systems",
 ];
 
 const interests = [
-    "Building autonomous systems",
-    "Reading on cybersecurity and offensive research",
+    "Reading distributed systems and ML systems papers",
     "Tinkering with hardware and embedded projects",
+    "Reading on cybersecurity and offensive research",
 ];
 
 export default function AboutPage() {
@@ -31,21 +33,30 @@ export default function AboutPage() {
                 </div>
                 <div className="flex-1 space-y-4 text-slate-700 leading-relaxed">
                     <p>
-                        I&apos;m a Computer Science student at California Science and
-                        Technology University focused on the intersection of practical
-                        software engineering, applied machine learning, and security.
+                        I&apos;m a Computer Science student at California Science
+                        and Technology University focused on the systems and
+                        infrastructure layer of modern software — distributed
+                        retrieval, ML inference pipelines, real-time
+                        collaboration, and the storage and runtime primitives
+                        those depend on.
                     </p>
                     <p>
-                        Most of my work has been in Python and C++, building things like
-                        supervised ML pipelines for attention forecasting (PRISM), a
-                        GPS-denied autonomous reconnaissance stack on ROS 2 (Sentinel-X),
-                        and a visual C++ memory debugger meant to make heap behavior
-                        approachable for beginners (HeapSight).
+                        My projects deliberately span the stack: a sharded vector
+                        search service targeting sub-100ms p99 latency for
+                        billion-scale embedding retrieval, a high-throughput LLM
+                        inference server using continuous batching to lift GPU
+                        utilization, a real-time CRDT engine that resolves
+                        concurrent edits without a central coordinator, and a
+                        Rust LSM key-value store with Raft replication.
                     </p>
                     <p>
-                        I&apos;m currently learning the modern web stack — Next.js,
-                        React, and TypeScript — so I can ship the front-end of my ideas
-                        as quickly as I build the backend.
+                        I gravitate toward problems where the work is in
+                        measuring the bottleneck and rebuilding the slow part —
+                        search ranking under load, GPU memory pressure,
+                        replication lag, the questions production engineering
+                        teams actually answer. I&apos;m sharpening the modern web
+                        stack (Next.js, React, TypeScript) so I can ship
+                        full-stack interfaces over the systems I build.
                     </p>
                 </div>
             </div>

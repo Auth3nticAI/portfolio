@@ -10,14 +10,17 @@ export default function HomePage() {
                 Tray Branch Sr
             </h1>
             <p className="mt-4 text-xl text-slate-600">
-                Computer Science student building practical software, AI tools, and
-                security-focused applications.
+                Building distributed systems, ML infrastructure, and the runtimes
+                both depend on.
             </p>
 
             <p className="mt-8 text-base leading-relaxed text-slate-700 max-w-2xl">
-                I focus on turning ideas into working systems — from supervised ML
-                pipelines and autonomous robotics stacks to low-level systems tooling.
-                I care about software that does something real, not just demos.
+                I work where algorithmic depth meets production reality —
+                distributed retrieval, ML inference at scale, real-time
+                collaboration, and the storage and runtime primitives underneath
+                all of it. My focus is shipping software that holds up under
+                load, not impressive demos that collapse on the first
+                non-happy-path input.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-3">

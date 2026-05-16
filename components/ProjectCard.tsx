@@ -43,15 +43,17 @@ export default function ProjectCard({ project }: { project: Project }) {
                 ))}
             </ul>
 
-            <div className="flex gap-4 text-sm font-medium">
-                <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-700 hover:underline"
-                >
-                    GitHub &rarr;
-                </a>
+            <div className="flex gap-4 text-sm font-medium min-h-5">
+                {project.githubUrl && (
+                    <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-700 hover:underline"
+                    >
+                        GitHub &rarr;
+                    </a>
+                )}
                 {project.liveUrl && (
                     <a
                         href={project.liveUrl}
@@ -61,6 +63,9 @@ export default function ProjectCard({ project }: { project: Project }) {
                     >
                         Live &rarr;
                     </a>
+                )}
+                {!project.githubUrl && !project.liveUrl && project.status === "planned" && (
+                    <span className="text-slate-400">Repo coming soon</span>
                 )}
             </div>
         </article>
