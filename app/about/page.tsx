@@ -1,14 +1,32 @@
-const skills = [
-    "Go",
-    "Rust",
-    "Python",
-    "TypeScript",
-    "C++",
-    "Distributed Systems",
-    "ML Infrastructure",
-    "PyTorch / CUDA",
-    "React / Next.js",
-    "Linux / Systems",
+import CourseworkAccordion from "@/components/CourseworkAccordion";
+import { GitHubIcon, LinkedInIcon, MailIcon } from "@/components/icons";
+import { SOCIALS } from "@/data/site";
+
+/** Skills grouped by category, each with its own accent on hover. */
+const skillGroups: {
+    label: string;
+    base: string;
+    hover: string;
+    items: string[];
+}[] = [
+    {
+        label: "Languages",
+        base: "border-blue-500/20 bg-blue-500/10 text-blue-300",
+        hover: "hover:border-blue-400/50 hover:shadow-[0_0_16px_rgba(37,99,235,0.35)]",
+        items: ["Go", "Rust", "Python", "TypeScript", "C++"],
+    },
+    {
+        label: "Systems & Infra",
+        base: "border-emerald-500/20 bg-emerald-500/10 text-emerald-300",
+        hover: "hover:border-emerald-400/50 hover:shadow-[0_0_16px_rgba(16,185,129,0.3)]",
+        items: ["Distributed Systems", "ML Infrastructure", "Linux / Systems"],
+    },
+    {
+        label: "ML & Web",
+        base: "border-violet-500/20 bg-violet-500/10 text-violet-300",
+        hover: "hover:border-violet-400/50 hover:shadow-[0_0_16px_rgba(139,92,246,0.3)]",
+        items: ["PyTorch / CUDA", "React / Next.js"],
+    },
 ];
 
 const interests = [
@@ -48,10 +66,7 @@ const coursework: { theme: string; courses: string[] }[] = [
     },
     {
         theme: "Security",
-        courses: [
-            "CSE/MB624 — Network Security",
-            "CSE637 — AI Security",
-        ],
+        courses: ["CSE/MB624 — Network Security", "CSE637 — AI Security"],
     },
     {
         theme: "Data",
@@ -72,17 +87,58 @@ const coursework: { theme: string; courses: string[] }[] = [
 export default function AboutPage() {
     return (
         <section className="max-w-3xl mx-auto px-6 py-16 sm:py-20">
-            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
+            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
                 About Me
             </h1>
 
-            <div className="mt-8 flex items-start gap-6">
-                <img
-                    src="/tray.jpg"
-                    alt="Tray Branch"
-                    className="flex-shrink-0 w-24 h-24 rounded-full object-cover shadow-md ring-2 ring-blue-100"
-                />
-                <div className="flex-1 space-y-4 text-slate-700 leading-relaxed">
+            <div className="mt-8 grid gap-8 sm:grid-cols-3">
+                {/* Identity block */}
+                <div className="sm:col-span-1">
+                    <div className="flex flex-col items-start">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                            src="/tray.jpg"
+                            alt="Tray Branch"
+                            className="w-24 h-24 rounded-full object-cover ring-2 ring-blue-500/30"
+                        />
+                        <p className="mt-4 text-lg font-semibold text-white">
+                            Tray Branch Sr
+                        </p>
+                        <p className="text-sm text-zinc-400">
+                            MS Computer Systems &amp; Engineering
+                        </p>
+                        <div className="mt-4 flex items-center gap-3 text-zinc-400">
+                            <a
+                                href={SOCIALS.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="GitHub"
+                                className="hover:text-white transition-colors"
+                            >
+                                <GitHubIcon className="h-5 w-5" />
+                            </a>
+                            <a
+                                href={SOCIALS.linkedin}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="LinkedIn"
+                                className="hover:text-white transition-colors"
+                            >
+                                <LinkedInIcon className="h-5 w-5" />
+                            </a>
+                            <a
+                                href={`mailto:${SOCIALS.email}`}
+                                aria-label="Email"
+                                className="hover:text-white transition-colors"
+                            >
+                                <MailIcon className="h-5 w-5" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Bio */}
+                <div className="sm:col-span-2 space-y-4 text-zinc-300 leading-relaxed">
                     <p>
                         I&apos;m a Master&apos;s student in Computer Systems
                         &amp; Engineering at California Science and Technology
@@ -113,29 +169,41 @@ export default function AboutPage() {
             </div>
 
             <div className="mt-12">
-                <h2 className="text-xl font-semibold text-slate-900 mb-2">
+                <h2 className="text-xl font-semibold text-white mb-2">
                     Education
                 </h2>
-                <p className="text-slate-700">
-                    <strong>Master of Computer Systems &amp; Engineering</strong>
+                <p className="text-zinc-300">
+                    <strong className="text-white">
+                        Master of Computer Systems &amp; Engineering
+                    </strong>
                     {" · "}
                     California Science and Technology University
                 </p>
-                <p className="text-sm text-slate-500 mt-1">
-                    30 graduate units across 7 terms · 24-month program · Coursework grouped by area below.
+                <p className="text-sm text-zinc-500 mt-1">
+                    30 graduate units across 7 terms · 24-month program ·
+                    Coursework grouped by area below.
                 </p>
 
-                <div className="mt-6 space-y-6">
-                    {coursework.map((group) => (
-                        <div key={group.theme}>
-                            <h3 className="text-sm font-semibold text-slate-900 mb-2 uppercase tracking-wider">
-                                {group.theme}
-                            </h3>
-                            <ul className="space-y-1.5 text-sm text-slate-700">
-                                {group.courses.map((c) => (
-                                    <li key={c} className="flex items-start gap-2 leading-relaxed">
-                                        <span className="text-blue-600 mt-1.5 flex-shrink-0">•</span>
-                                        <span>{c}</span>
+                <CourseworkAccordion groups={coursework} />
+            </div>
+
+            <div className="mt-12">
+                <h2 className="text-xl font-semibold text-white mb-4">
+                    Skills &amp; Technologies
+                </h2>
+                <div className="space-y-4">
+                    {skillGroups.map((group) => (
+                        <div key={group.label}>
+                            <p className="text-xs font-medium uppercase tracking-wider text-zinc-500 mb-2">
+                                {group.label}
+                            </p>
+                            <ul className="flex flex-wrap gap-2">
+                                {group.items.map((skill) => (
+                                    <li
+                                        key={skill}
+                                        className={`rounded-full border px-3 py-1.5 text-sm font-medium transition-all duration-200 ${group.base} ${group.hover}`}
+                                    >
+                                        {skill}
                                     </li>
                                 ))}
                             </ul>
@@ -145,51 +213,35 @@ export default function AboutPage() {
             </div>
 
             <div className="mt-12">
-                <h2 className="text-xl font-semibold text-slate-900 mb-4">
-                    Skills &amp; Technologies
-                </h2>
-                <ul className="flex flex-wrap gap-2">
-                    {skills.map((skill) => (
-                        <li
-                            key={skill}
-                            className="bg-blue-50 text-blue-800 text-sm font-medium px-3 py-1.5 rounded-full"
-                        >
-                            {skill}
-                        </li>
-                    ))}
-                </ul>
-            </div>
-
-            <div className="mt-10">
-                <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                <h2 className="text-xl font-semibold text-white mb-4">
                     Outside of Tech
                 </h2>
-                <ul className="space-y-2 text-slate-700">
+                <ul className="space-y-2 text-zinc-300">
                     {interests.map((interest) => (
                         <li key={interest} className="flex items-start gap-2">
-                            <span className="text-blue-600 mt-1.5">•</span>
+                            <span className="text-blue-400 mt-1.5">•</span>
                             <span>{interest}</span>
                         </li>
                     ))}
                 </ul>
             </div>
 
-            <div className="mt-12 border-t border-slate-200 pt-8">
-                <h2 className="text-xl font-semibold text-slate-900 mb-3">
+            <div className="mt-12 border-t border-white/10 pt-8">
+                <h2 className="text-xl font-semibold text-white mb-3">
                     Get in touch
                 </h2>
-                <p className="text-slate-700 mb-4">
+                <p className="text-zinc-300 mb-4">
                     The best way to reach me is LinkedIn. Targeting Fall 2026
                     internships or Fall 2026 full-time SWE / ML infra roles.
                 </p>
-                <ul className="space-y-2">
+                <ul className="space-y-2 text-zinc-300">
                     <li>
                         LinkedIn:{" "}
                         <a
-                            href="https://linkedin.com/in/traydbranch"
+                            href={SOCIALS.linkedin}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-blue-700 font-medium hover:underline"
+                            className="text-blue-400 font-medium hover:text-blue-300 hover:underline"
                         >
                             linkedin.com/in/traydbranch
                         </a>
@@ -197,19 +249,19 @@ export default function AboutPage() {
                     <li>
                         Email:{" "}
                         <a
-                            href="mailto:tray.d.branch@gmail.com"
-                            className="text-blue-700 font-medium hover:underline"
+                            href={`mailto:${SOCIALS.email}`}
+                            className="text-blue-400 font-medium hover:text-blue-300 hover:underline"
                         >
-                            tray.d.branch@gmail.com
+                            {SOCIALS.email}
                         </a>
                     </li>
                     <li>
                         GitHub:{" "}
                         <a
-                            href="https://github.com/Auth3nticAI"
+                            href={SOCIALS.github}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-blue-700 font-medium hover:underline"
+                            className="text-blue-400 font-medium hover:text-blue-300 hover:underline"
                         >
                             github.com/Auth3nticAI
                         </a>
