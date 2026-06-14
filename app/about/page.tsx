@@ -179,8 +179,8 @@ export default function AboutPage() {
                     Get in touch
                 </h2>
                 <p className="text-slate-700 mb-4">
-                    The best way to reach me is LinkedIn. I&apos;m open to
-                    Software Engineer Intern / New-Grad roles.
+                    The best way to reach me is LinkedIn. Targeting Fall 2026
+                    internships or Fall 2026 full-time SWE / ML infra roles.
                 </p>
                 <ul className="space-y-2">
                     <li>
