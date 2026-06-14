@@ -11,50 +11,66 @@ export interface Project {
 export const projects: Project[] = [
     {
         id: 1,
-        title: "Distributed Vector Search Engine",
+        title: "Book Tracker AI",
         description:
-            "Sharded approximate-nearest-neighbor search service using HNSW indexes with consistent-hashed routing and Raft-replicated metadata. Targets sub-100ms p99 latency for billion-scale embedding retrieval — the bottleneck behind production RAG, semantic search, and recommendation.",
-        tags: ["Go", "Distributed Systems", "Search", "gRPC"],
-        status: "in-progress",
+            "Full-stack reading journal. Three distinct Claude integrations in one app: context-injected recommendations grounded in your library, page-anchored note synthesis, and a 5-tool agent loop. One docker compose up — Next.js + FastAPI + Postgres + Claude. Graduate capstone.",
+        tags: ["Next.js", "FastAPI", "PostgreSQL", "Claude", "Docker"],
+        githubUrl: "https://github.com/Auth3nticAI/book-tracker-ai",
+        status: "shipped",
     },
     {
         id: 2,
-        title: "LLM Inference Server",
+        title: "HeapSight",
         description:
-            "High-throughput LLM inference server with paged KV-cache and continuous batching, lifting GPU utilization 3–4x over naive request batching. Supports tensor-parallel serving for models that exceed single-GPU memory.",
-        tags: ["Python", "CUDA", "PyTorch", "ML Infrastructure"],
-        status: "planned",
+            "Production C++ learning platform — write idiomatic C++ in the browser, compile to WebAssembly server-side, watch your game run live on canvas in under five seconds. raylib 5.5 + Cloud Run + Supabase + Next.js.",
+        tags: ["Next.js", "C++", "WebAssembly", "Cloud Run", "Supabase"],
+        githubUrl: "https://github.com/Auth3nticAI/heapsight",
+        liveUrl: "https://heapsight.com",
+        status: "shipped",
     },
     {
         id: 3,
-        title: "Real-time Recommender System",
+        title: "PRISM — Attention Forecasting",
         description:
-            "Two-tower retrieval with a cross-encoder reranker, trained on a Kafka interaction stream with online label updates. Implements point-in-time-correct feature joins so training and serving see the same signals — the failure mode behind most broken ranking deploys.",
-        tags: ["Python", "PyTorch", "Kafka", "Recommendation Systems"],
-        status: "planned",
+            "Supervised ML pipeline predicting where users will look next from mouse-tracking trajectories. Trained on SALICON (579K fixation sequences). Engineered kinematic features (speed, acceleration, jerk) → Random Forest classifier → spatial priority map for foveated rendering.",
+        tags: ["Python", "scikit-learn", "Pandas", "Computer Vision"],
+        githubUrl: "https://github.com/Auth3nticAI/prism_ml_part1",
+        status: "shipped",
     },
     {
         id: 4,
-        title: "Real-time CRDT Sync Engine",
+        title: "Aeroscapes UAV Segmentation",
         description:
-            "WebSocket-backed collaborative-state engine using conflict-free replicated data types to merge concurrent edits without central coordination. Sub-50ms convergence and offline-tolerant — the kind of multiplayer state used by Figma and Linear.",
-        tags: ["TypeScript", "Rust", "Distributed Systems", "Real-time"],
-        status: "planned",
+            "Three-model comparison on Aeroscapes drone imagery (12 classes, 720×720). DeepLabv3+ hit 0.789 mIoU — 10% over U-Net and 15% over SegFormer — while being the fastest at inference. Includes per-class IoU breakdown and failure-case analysis.",
+        tags: ["Python", "PyTorch", "Computer Vision", "Deep Learning"],
+        githubUrl: "https://github.com/Auth3nticAI/aeroscapes-project",
+        status: "shipped",
     },
     {
         id: 5,
-        title: "Rust LSM Key-Value Store",
+        title: "Accounting AI Playbook",
         description:
-            "Embedded key-value store with an LSM-tree storage engine, write-ahead logging, MVCC snapshot reads, and Raft-replicated multi-node consensus. Built to understand — and to be measurably comparable against — the primitives behind RocksDB, etcd, and TiKV.",
-        tags: ["Rust", "Storage Engines", "Raft", "Databases"],
-        status: "planned",
+            "Catalog of recurring accounting pain points mapped to AI solutions — each with tech stack, maturity level, setup time, and a target price. Built so an AI consultant can land discovery calls on real, priced answers instead of vapor. Next.js + FastAPI + Postgres with a one-to-many domain model.",
+        tags: ["Next.js", "FastAPI", "PostgreSQL", "Pydantic"],
+        githubUrl: "https://github.com/Auth3nticAI/accounting-ai-playbook",
+        status: "shipped",
     },
     {
         id: 6,
         title: "Sentinel-X — Autonomous Reconnaissance",
         description:
-            "GPS-denied autonomous reconnaissance platform combining visual-inertial SLAM, edge ML perception, and zero-trust agentic mission control on ROS 2. Built for environments where neither GPS nor cloud connectivity can be assumed.",
-        tags: ["Python", "ROS 2", "Robotics", "Edge AI"],
+            "GPS-denied autonomous reconnaissance stack combining visual-inertial SLAM, edge ML perception, and zero-trust agentic mission control on ROS 2. Designed for environments where neither GPS nor cloud connectivity can be assumed.",
+        tags: ["Python", "ROS 2", "Robotics", "Edge AI", "Security"],
+        githubUrl: "https://github.com/Auth3nticAI/sentinel-x",
         status: "in-progress",
+    },
+    {
+        id: 7,
+        title: "Claude Tool-Use Agent (reference)",
+        description:
+            "Clean isolated implementation of the Anthropic tool-use loop — 5 tools over a real Postgres book library, bounded iterations, every tool call logged. The smallest readable version of the pattern, extracted from the Book Tracker AI capstone for portability.",
+        tags: ["Python", "FastAPI", "PostgreSQL", "Claude"],
+        githubUrl: "https://github.com/Auth3nticAI/claude-tool-use-agent",
+        status: "shipped",
     },
 ];
