@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio — tray-branch.dev
 
-## Getting Started
+> Personal site. Hero, About, and a Projects page with a tag-filter that lets visitors slice by language or domain.
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-16-000000?style=flat&logo=nextdotjs)
+![React](https://img.shields.io/badge/React-19-61DAFB?style=flat&logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat&logo=typescript&logoColor=white)
+![Tailwind](https://img.shields.io/badge/Tailwind-4-06B6D4?style=flat&logo=tailwindcss&logoColor=white)
+
+---
+
+![homepage](screenshots/homepage.png)
+
+## What's here
+
+- **Three pages** routed through the App Router — Home, About, Projects.
+- **Projects page** renders from a typed `data/projects.ts` array via `.map()`, with category-tag filter buttons backed by `useState`.
+- **Reusable `<ProjectCard>` component** so each project renders the same way and adding a new one is a single object in the array.
+- Responsive at every breakpoint, no layout flickers; mobile-first padding and spacing.
+- Avatar gradient component (currently initials, swappable to an image).
+
+![projects page with filter active](screenshots/projects-filtered.png)
+
+## Stack
+
+- Next.js 16 App Router + TypeScript
+- Tailwind 4 (CSS-based config)
+- No state library, no fetcher — straight `useState` + a typed data file
+
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project layout
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+portfolio/
+├── app/
+│   ├── layout.tsx          # Shared nav + footer
+│   ├── page.tsx            # Home / hero
+│   ├── about/page.tsx      # Bio + skills + interests
+│   └── projects/page.tsx   # Client component — useState filter
+├── components/
+│   └── ProjectCard.tsx     # Reusable project card with status + tech tags
+├── data/
+│   └── projects.ts         # Typed project array — single source of truth
+```
 
-## Learn More
+## Background
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Built as Mini Project 1 for **CSE552 — Fullstack Software Development in the Age of AI Agents**. Designed to double as a living portfolio site, not throwaway coursework.
