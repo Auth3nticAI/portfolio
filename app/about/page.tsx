@@ -77,12 +77,11 @@ export default function AboutPage() {
             </h1>
 
             <div className="mt-8 flex items-start gap-6">
-                <div
-                    aria-hidden="true"
-                    className="flex-shrink-0 w-24 h-24 rounded-full bg-gradient-to-br from-blue-600 to-blue-400 flex items-center justify-center text-3xl font-bold text-white shadow-md"
-                >
-                    TB
-                </div>
+                <img
+                    src="/tray.jpg"
+                    alt="Tray Branch"
+                    className="flex-shrink-0 w-24 h-24 rounded-full object-cover shadow-md ring-2 ring-blue-100"
+                />
                 <div className="flex-1 space-y-4 text-slate-700 leading-relaxed">
                     <p>
                         I&apos;m a Master&apos;s student in Computer Systems
@@ -180,9 +179,21 @@ export default function AboutPage() {
                     Get in touch
                 </h2>
                 <p className="text-slate-700 mb-4">
-                    The best ways to reach me or see more of my work:
+                    The best way to reach me is LinkedIn. I&apos;m open to
+                    Software Engineer Intern / New-Grad roles.
                 </p>
                 <ul className="space-y-2">
+                    <li>
+                        LinkedIn:{" "}
+                        <a
+                            href="https://linkedin.com/in/traydbranch"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-700 font-medium hover:underline"
+                        >
+                            linkedin.com/in/traydbranch
+                        </a>
+                    </li>
                     <li>
                         Email:{" "}
                         <a
